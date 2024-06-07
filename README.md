@@ -1,18 +1,15 @@
 # Practice Questions
 
 ## What is Redux, how is it different from Context API? Why use Redux over Context API?
-   According to official documentation Redux is a javascript library for predictable and maintainable global state management, primarily used with React. It helps manage application state in a centralized store, making it easier to manage and manipulate application data. Redux follows the principles of a unidirectional data flow, which means data flows in one direction through your application.
+   - According to official documentation Redux is a javascript library for predictable and maintainable global state management, primarily used with React. It helps manage application state in a centralized store, making it easier to manage and manipulate application data. Redux follows the principles of a unidirectional data flow, which means data flows in one direction through your application.
 
-   On the other hand, The Context API is a feature in React that provides a way to pass data through the component tree without having to pass props down manually at every level.It is useful when you have data that needs to be accessible by many components at different nesting levels.
+   - On the other hand, The Context API is a feature in React that provides a way to pass data through the component tree without having to pass props down manually at every level.It is useful when you have data that needs to be accessible by many components at different nesting levels.
 
    There are some differences between Redux and the Context API:
 
    - Redux provides a centralized store for all of your application's state, making it easier to manage and debug Context API allows you to create multiple contexts because of that it is more decentralized approach.
-
    - Redux can offer better performance in large applications because of its centralized store and efficient update mechanisms. Context API, especially when used with useContext, can lead to unnecessary re-renders in some cases.
-
    - Redux offers powerful debugging tools and middleware like Redux DevTools, which can improve the developer experience. Context API doesn't come with built-in tools for debugging.
-
    - It is alwaya preferable to use Redux over the Context API as Redux is better suited for large-scale applications where complex state management is required. Its centralized approach and predictability make it easier to scale.
    - Redux can offer better performance optimizations compared to Context API especially for deeply nested components. 
    - Redux's strict unidirectional data flow and powerful debugging tools make it easier to trace the flow of data and debug issues in large applications.
@@ -134,7 +131,10 @@
 
     export default App;
   ```
+
 ## Discussion on projects.
+
+
 ## What is the virtual DOM and how does it work in React?
    - The virtual DOM (VDOM) is a concept used in React to improve performance by minimizing the number of direct manipulations to the actual DOM. It's a lightweight copy of the real DOM, maintained by React, that reflects the current state of the UI. When changes are made to the UI, React first updates the virtual DOM, then compares it with the previous version (reconciliation), and finally applies only the necessary changes to the real DOM.
    - React applies only the necessary changes to the real DOM to bring it in sync with the updated virtual DOM. This process is optimized to minimize DOM manipulations, resulting in better performance.
@@ -182,7 +182,6 @@
    useRef: Allows functional components to create mutable references to DOM elements or other values that persist across renders.
 
 
-
 ## How do you manage side effects in React applications?
    - In React applications, side effects such as data fetching, subscriptions, or DOM manipulations are managed using the useEffect hook. useEffect allows you to perform side effects in functional components in response to component lifecycle events like mounting, updating, and unmounting.
    - If you pass an empty dependency array ([]) as the second argument to useEffect, the effect will run only once after the component mounts. Like an Mounting phase
@@ -198,12 +197,14 @@
    - Use the `<Link>` component for navigation within your application instead of using anchor tags (<a>), which reload the page.
    - You can navigate programmatically using the useNavigate() hook:
 
+
 ## Explain the concept of prop drilling and how to avoid it.
    - Prop drilling is a term used to describe the process of passing data from a parent component down to deeply nested child components through intermediate components. This often results in components receiving props that they do not directly need, only to pass them further down the component tree. This can make the code harder to manage, understand, and maintain.
    - To avoid prop drilling, you can use several techniques such as Context API, State Management Libraries.
    - The React Context API allows you to create a context and pass data to any component in the tree without passing props explicitly through every level.
    - Libraries like Redux, MobX can be used to manage state globally, making it accessible to any component in the application without the need for prop drilling.
    - By using these techniques, you can avoid the issue of prop drilling, making your codebase cleaner, more maintainable, and easier to understand.
+
 
 ## What are fragments in React and why are they used?
    - Fragments in React allow you to group a list of children elements without adding extra nodes to the DOM. They are particularly useful when you want to return multiple elements from a component without wrapping them in a parent element like a `<div>`, which can lead to unnecessary nesting and can complicate styling and layout.
@@ -270,16 +271,17 @@
     export default ErrorBoundary;
   ```
    
+
 ## What is the difference between state and props in React?
    - In React, both state and props are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.
    - The state entity is managed by the component itself and can be updated using the setter(setState() for class components) function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Moreover, changes in the state trigger a re-render of the component and its children. The components cannot become reusable with the usage of state alone.
    - On the otherhand, props (short for "properties") are passed to a component by its parent component and are read-only, meaning that they cannot be modified by the own component itself. Also, props can be used to configure the behavior of a component and to pass data between components. The components become reusable with the usage of props.
 
 
-
 ## How do you implement server-side rendering (SSR) in a React application?
    - Server-side rendering (SSR) in a React application involves rendering React components on the server and sending the generated HTML to the client. This can improve performance and SEO, especially for initial page loads. One of the most popular ways to implement SSR in React is by using a framework like Next.js, which provides built-in support for SSR.
    - Next.js is a React framework that provides an easy way to implement SSR along with other features like static site generation (SSG), API routes, and more.
+
 
 ## Explain the difference between functional and class components in React.
    - In React, functional components and class components are two primary ways to define a component's behavior and structure.
@@ -291,6 +293,7 @@
    - Class components have lifecycle methods like componentDidMount(), componentDidUpdate(), componentWillUnmount(), etc.
    - functional components are becoming the preferred way to define React components due to their simplicity, readability, and the introduction of hooks, which allow them to have state and lifecycle behaviors similar to class components. However, class components still have their place, especially in legacy codebases and for certain use cases that require specific lifecycle methods or class features.
 
+
 ## How do you optimize a React application's performance using code splitting?
    - In a React application, optimizing performance is crucial for providing a smooth user experience. One technique to achieve this is code splitting, which involves breaking down your application's code into smaller, more manageable chunks and only loading the necessary code when it's needed.
    - Determine which parts of your application can benefit from code splitting. Typically, large libraries, components, or routes that are not immediately needed on the initial page load are good candidates for code splitting.
@@ -300,28 +303,129 @@
    
 
 ## What are portals in React and when would you use them?
-   - 
-   - 
+   - Portals in React provide a way to render children into a DOM node that exists outside the hierarchy of the parent component. This can be useful for various scenarios when implementing modals, tooltips, or popovers.
+   - Portals are often used for rendering modals or dialogs that should appear on top of other content, not constrained by the parent component's styling or z-index.
+   - Similar to modals, tooltips and popovers need to appear above other content and should not be affected by the overflow and positioning of parent components.
+   - Overlays, dropdown menus, and context menus can also benefit from portals to ensure they are positioned correctly and are not affected by the parent component's overflow settings.
+   - Portals are a powerful feature in React that enable you to render components outside their parent hierarchy, providing flexibility for creating components like modals, tooltips, and overlays. They help maintain a clean and modular codebase while ensuring that UI components are displayed correctly and without constraints from parent components.
 
 
 ## How do you handle asynchronous operations in React?
-   - 
-   - 
+   - Handling asynchronous operations in React is a common requirement, especially when dealing with data fetching, API calls, and other side effects.
+   - There are multiple ways to handle asynchronous operations
+   - One of the most common patterns is to use the useEffect hook combined with async/await for asynchronous operations. Since the useEffect function itself cannot be async, you define an async function inside the effect and call it.
+   - Alternatively, you can handle promises directly inside useEffect.
+   - For better reusability and separation of concerns, you can create a custom hook to handle asynchronous operations.
+   - For handling asynchronous events, such as form submissions or button clicks, you can use async functions directly.
+   - By following these patterns and best practices, you can efficiently manage asynchronous operations in your React applications, ensuring smooth user experiences and maintainable code.
 
 
 ## What is the significance of the `useEffect` hook and how is it used?
-   - 
-   - 
+   - The useEffect hook is one of the most powerful and commonly used hooks in React. It allows you to perform side effects in your functional components. Side effects are operations that can affect the state or behavior of your application.Examples include fetching data, directly manipulating the DOM etc
+   - In functional components of react useEffect hook used instead of lifecycle methods from class components
+   - It's commonly used for data fetching and can be configured to run when the component mounts or when certain state variables change.
+   - You can use useEffect to set up subscriptions or event listeners, and clean them up when the component unmounts or when dependencies change.
+   - helps in optimizing performance by avoiding unnecessary re-runs of the effect.
+   ```jsx
+   const MyComponent = () => {
+   useEffect(() => {
+      // Code to run on component mount (and on updates, if dependencies are not specified)
+      return () => {
+         // Cleanup code to run on component unmount
+      };
+   }, [/* dependencies*/]);
+   ```
 
 
 ## How do you create a custom hook in React?
-   - 
-   - 
+   - Creating a custom hook in React allows you to extract and reuse logic across multiple components. Custom hooks are regular JavaScript functions whose names start with "use" and can call other hooks. 
+   - Identify logic that is used by multiple components and can be changed into reusable function.
+   - Define a function that cover the logic and can be reused. This function should start with the word "use".
+   - You can use built-in hooks (like useState, useEffect, etc.)
+   - Take required props & Return the necessary state and functions from the custom hook so that consuming components can use them.
+   - Benifits: Custom hooks allow you to reuse logic across multiple components, reducing code duplication. Extracting complex logic into custom hooks makes your components cleaner and easier to read.
+   Easier to test and maintain.
+   ```jsx
+      import { useState, useEffect } from 'react';
+
+      const useFetch = (url) => {
+      const [data, setData] = useState(null);
+      const [loading, setLoading] = useState(true);
+      const [error, setError] = useState(null);
+
+      useEffect(() => {
+         const fetchData = async () => {
+            setLoading(true);
+            try {
+               const response = await fetch(url);
+               const result = await response.json();
+               setData(result);
+               setError(null);
+            } catch (error) {
+               setError(error);
+               setData(null);
+            }
+            setLoading(false);
+         };
+
+         fetchData();
+      }, [url]);
+
+      return { data, loading, error };
+      };
+
+      export default useFetch;
+
+      // Used as:
+      const { data, loading, error } = useFetch('https://api.example.com/data');
+      if (loading) return <p>Loading...</p>;
+      if (error) return <p>Error: {error.message}</p>;
+  ```
 
 
 ## Explain the context API and its use cases.
-   - 
-   - 
+   - The Context API in React is a feature that allows you to manage global state or data that can be shared across the entire component tree without the need to pass props down manually through each nested component. This can be particularly useful for managing state that needs to be accessible by many components at different levels of the application.
+   - Use React.createContext() to create a Context object.
+   - The Provider component is used to wrap the part of your application
+   - Use the useContext hook in functional components
+   - It is widely used in Theme Management, User Authentication, Language Localization, Global State Management.
+   - Share theme information (e.g., light/dark mode) across the application to ensure consistent styling.
+   - Manage user authentication state (e.g., user login status, user details) and share it across different parts of the application without prop drilling.
+   - Provide localized text and manage the current language or locale for internationalization purposes.
+   - Manage global state that needs to be accessed by multiple components, such as application settings, notifications, or user preferences.
+   ```jsx
+      // ThemeContext.js
+      import React, { createContext, useState } from 'react';
+      export const ThemeContext = createContext();
+
+      export const ThemeProvider = ({ children }) => {
+      const [theme, setTheme] = useState('light');
+
+         return (
+            <ThemeContext.Provider value={{ theme, setTheme }}>
+               {children}
+            </ThemeContext.Provider>
+         );
+      };
+      // App.js
+      const App = () => {
+         return (
+            <ThemeProvider>
+               <Header />
+               <Content />
+            </ThemeProvider>
+         );
+      };
+      // Header.jsx
+      const Header = () => {
+      const { theme, setTheme } = useContext(ThemeContext);
+
+      return (
+               <h1>Theme is {theme}</h1>
+               <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>Toggle Theme</button>
+         );
+      };
+  ```
 
 
 ## What are the best practices for structuring a React application?
